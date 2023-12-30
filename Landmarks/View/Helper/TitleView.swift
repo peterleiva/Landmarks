@@ -28,5 +28,5 @@ struct TitleView: View {
 }
 
 #Preview {
-  TitleView(landmark: landmarks[0])
+  TitleView(landmark: ModelData().landmarks[0])
 }

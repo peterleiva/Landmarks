@@ -17,13 +17,17 @@ struct LandmarkRow: View {
         Text(landmark.name)
 
         Spacer()
+        
+        if landmark.isFavorite {
+          Image(systemName: "star.fill").foregroundStyle(.yellow)
+        }
       }
     }
 }
 
 #Preview("All landmarks") {
   ScrollView {
-    ForEach(landmarks) { l in
+    ForEach(ModelData().landmarks) { l in
       LandmarkRow(landmark: l)
       Divider()
     
@@ -34,7 +38,7 @@ struct LandmarkRow: View {
 
 #Preview("Turtle Rock") {
   Group {
-    LandmarkRow(landmark: landmarks[0])
-    LandmarkRow(landmark: landmarks[1])
+    LandmarkRow(landmark: ModelData().landmarks[0])
+    LandmarkRow(landmark: ModelData().landmarks[1])
   }
 }
